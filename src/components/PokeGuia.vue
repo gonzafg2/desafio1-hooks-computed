@@ -66,10 +66,11 @@ export default {
   data() {
     return {
       pokeName: "pikachu",
+      pokeNameAPI: "",
       pokeImg: "",
       pokeMoves: [],
       pokeAbilities: [],
-      alert: false,
+      alert: false
     };
   },
   created() {
@@ -77,7 +78,7 @@ export default {
   },
   computed: {
     getName() {
-      return this.pokeName.toUpperCase();
+      return this.pokeNameAPI.toUpperCase();
     },
     getImg() {
       return this.pokeImg;
@@ -87,7 +88,7 @@ export default {
     },
     getAbilities() {
       return this.pokeAbilities;
-    },
+    }
   },
   methods: {
     async getPoke() {
@@ -95,8 +96,9 @@ export default {
         this.alert = false;
         let pokeNameInput = this.pokeName.trim().toLowerCase();
         await fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNameInput)
-          .then((res) => res.json())
-          .then((data) => {
+          .then(res => res.json())
+          .then(data => {
+            this.pokeNameAPI = data.name;
             this.pokeImg = data.sprites.front_default;
             this.pokeMoves = data.moves;
             this.pokeAbilities = data.abilities;
@@ -112,8 +114,8 @@ export default {
       this.alert = false;
       this.pokeName = "pikachu";
       this.getPoke();
-    },
-  },
+    }
+  }
 };
 </script>
 
