@@ -42,7 +42,7 @@
         <h3>Movimientos</h3>
         <ol>
           <li v-for="item in getMoves" :key="item.id">
-            {{ item.move.name }}
+            {{ item.move.name.toUpperCase() }}
           </li>
         </ol>
       </div>
@@ -52,7 +52,7 @@
         <h3>Habilidades</h3>
         <ol>
           <li v-for="item in getAbilities" :key="item.id">
-            {{ item.ability.name }}
+            {{ item.ability.name.toUpperCase() }}
           </li>
         </ol>
       </div>
@@ -87,7 +87,7 @@ export default {
       return this.pokeMoves.slice(0, 10);
     },
     getAbilities() {
-      return this.pokeAbilities;
+      return this.pokeAbilities.slice(0, 10);
     }
   },
   methods: {
