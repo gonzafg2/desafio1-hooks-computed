@@ -1,14 +1,19 @@
 <template>
-  <div class="container mt-5 pokeguia">
+  <div class="container mt-md-5 mt-3 pokeguia">
     <div v-show="alert" class="alert alert-danger alerta" role="alert">
       El pokemon buscado no existe. Por favor escribe nuevamente.
     </div>
     <div class="row d-flex justify-content-center">
-      <div class="col-12 my-5 d-flex justify-content-center">
-        <img src="./../assets/logopoke.png" alt="Logo2" />
+      <div class="col-12 my-md-5 mb-3 d-flex justify-content-center">
+        <img
+          src="./../assets/logopoke.png"
+          alt="Logo2"
+          class="d-none d-block-md"
+        />
+        <h2 class="d-block d-none-md">PokeGuía</h2>
       </div>
-      <div class="col-5 d-flex justify-content-center">
-        <div class="input-group my-3">
+      <div class="col-md-5 d-flex justify-content-center">
+        <div class="input-group my-md-3">
           <div class="input-group-prepend">
             <span class="input-group-text py-0"
               ><img src="./../assets/logopoke.png" height="30px" alt="Logopoke"
@@ -29,11 +34,11 @@
         </div>
       </div>
     </div>
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center mt-3">
       <div class="col-12 d-flex justify-content-center">
         <h4>{{ getName }}</h4>
       </div>
-      <div class="col-12 d-flex justify-content-center">
+      <div class="col-12 d-flex justify-content-center mb-3">
         <img width="20%" :src="getImg" alt="Pikachu" />
       </div>
       <div
@@ -47,7 +52,7 @@
         </ol>
       </div>
       <div
-        class="col-6 d-flex flex-column justify-content-start align-items-center my-3"
+        class="col-6 d-flex flex-column justify-content-start align-items-center my-md-3"
       >
         <h3>Habilidades</h3>
         <ol>
