@@ -33,11 +33,11 @@
       <div class="col-12 d-flex justify-content-center">
         <h4>{{ getName }}</h4>
       </div>
-      <div class="col-12 d-flex justify-content-center my-4">
-        <img :src="getImg" alt="Pikachu" />
+      <div class="col-12 d-flex justify-content-center">
+        <img width="20%" :src="getImg" alt="Pikachu" />
       </div>
       <div
-        class="col-6 d-flex flex-column justify-content-start align-items-center justify-content-center my-3"
+        class="col-6 d-flex flex-column justify-content-start align-items-center justify-content-center"
       >
         <h3>Movimientos</h3>
         <ol>
