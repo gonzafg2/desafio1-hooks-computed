@@ -36,25 +36,25 @@
       <div class="col-12 d-flex justify-content-center my-4">
         <img :src="getImg" alt="Pikachu" />
       </div>
-      <div class="col-12 d-flex justify-content-center my-3">
+      <div
+        class="col-6 d-flex flex-column justify-content-start align-items-center justify-content-center my-3"
+      >
         <h3>Movimientos</h3>
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-        <ul>
+        <ol>
           <li v-for="item in getMoves" :key="item.id">
             {{ item.move.name }}
           </li>
-        </ul>
+        </ol>
       </div>
-      <div class="col-12 d-flex justify-content-center my-3">
+      <div
+        class="col-6 d-flex flex-column justify-content-start align-items-center my-3"
+      >
         <h3>Habilidades</h3>
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-        <ul>
+        <ol>
           <li v-for="item in getAbilities" :key="item.id">
             {{ item.ability.name }}
           </li>
-        </ul>
+        </ol>
       </div>
     </div>
   </div>
@@ -84,7 +84,7 @@ export default {
       return this.pokeImg;
     },
     getMoves() {
-      return this.pokeMoves;
+      return this.pokeMoves.slice(0, 10);
     },
     getAbilities() {
       return this.pokeAbilities;
