@@ -1,19 +1,17 @@
 <template>
   <div id="app">
     <NavBar />
-    <PokeGuia />
+    <router-view />
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
-import PokeGuia from "./components/PokeGuia.vue";
 
 export default {
   name: "App",
   components: {
-    NavBar,
-    PokeGuia
+    NavBar
   }
 };
 </script>
