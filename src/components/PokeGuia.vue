@@ -8,9 +8,9 @@
         <img
           src="./../assets/logopoke.png"
           alt="Logo2"
-          class="d-none d-block-md"
+          class="d-none d-md-block"
         />
-        <h2 class="d-block d-none-md">PokeGuía</h2>
+        <h2 class="d-block d-md-none">PokeGuía</h2>
       </div>
       <div class="col-md-5 col-12 d-flex justify-content-center">
         <div class="input-group my-md-3">
@@ -33,14 +33,14 @@
           >
           <button
             @click="getPoke"
-            class="mt-2 col-5 btn btn-success btn-block d-block d-none-md"
+            class="mt-2 col-5 btn btn-success btn-block d-md-none"
           >
             Buscar
           </button>
           <div class="col"></div>
           <button
             @click="cleanPoke"
-            class="mt-2 col-5 mt-0 btn btn-warning btn-block d-block d-none-md"
+            class="mt-2 col-5 mt-0 btn btn-warning btn-block d-md-none"
           >
             Limpiar
           </button>
@@ -54,6 +54,10 @@
       <div class="col-12 d-flex justify-content-center mb-3">
         <img width="20%" :src="getImg" alt="Pikachu" />
       </div>
+      <!-- <div class="col-12 d-flex justify-content-center mb-5">
+        <button @click="destruir" class="btn btn-danger" >Destroy Parent</button>
+
+      </div> -->
       <div
         class="col-6 d-flex flex-column justify-content-start align-items-center justify-content-center"
       >
@@ -109,6 +113,11 @@ export default {
     }
   },
   methods: {
+    // destruir(){
+    //   // this.$parent.$destroy();
+    //   // this.$root.$destroy();
+    //   this.$destroy();
+    // },
     async getPoke() {
       try {
         this.alert = false;
