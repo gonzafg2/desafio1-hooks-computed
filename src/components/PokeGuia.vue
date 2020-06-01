@@ -1,5 +1,8 @@
 <template>
-  <div class="container mt-5">
+  <div class="container mt-5 pokeguia">
+    <div v-show="alert" class="alert alert-danger alerta" role="alert">
+      El pokemon buscado no existe. Por favor escribe nuevamente.
+    </div>
     <div class="row d-flex justify-content-center">
       <div class="col-12 my-5 d-flex justify-content-center">
         <img src="./../assets/logopoke.png" alt="Logo2" />
@@ -20,7 +23,8 @@
             @keyup.esc="cleanPoke"
           />
           <small class="form-text text-muted"
-            >Presiona Enter para buscar y Esc para limpiar y volver a Pikachu.</small
+            >Presiona Enter para buscar y Esc para limpiar y volver a
+            Pikachu.</small
           >
         </div>
       </div>
@@ -47,7 +51,7 @@
       </div>
       <div class="col-12 d-flex justify-content-center">
         <ul>
-          <li v-for="item in pokeAbilities" :key="item.id">
+          <li v-for="item in getAbilities" :key="item.id">
             {{ item.ability.name }}
           </li>
         </ul>
@@ -64,7 +68,8 @@ export default {
       pokeName: "pikachu",
       pokeImg: "",
       pokeMoves: [],
-      pokeAbilities: []
+      pokeAbilities: [],
+      alert: false,
     };
   },
   created() {
@@ -79,22 +84,60 @@ export default {
     },
     getMoves() {
       return this.pokeMoves;
-    }
+    },
+    getAbilities() {
+      return this.pokeAbilities;
+    },
   },
   methods: {
     async getPoke() {
-      await fetch("https://pokeapi.co/api/v2/pokemon/" + this.pokeName)
-        .then(res => res.json())
-        .then(data => {
-          this.pokeImg = data.sprites.front_default;
-          this.pokeMoves = data.moves;
-          this.pokeAbilities = data.abilities;
-        });
+      try {
+        this.alert = false;
+        let pokeNameInput = this.pokeName.trim().toLowerCase();
+        await fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNameInput)
+          .then((res) => res.json())
+          .then((data) => {
+            this.pokeImg = data.sprites.front_default;
+            this.pokeMoves = data.moves;
+            this.pokeAbilities = data.abilities;
+          });
+      } catch (error) {
+        console.log(error);
+        this.pokeName = "pikachu";
+        this.getPoke();
+        this.alert = true;
+      }
     },
     cleanPoke() {
+      this.alert = false;
       this.pokeName = "pikachu";
       this.getPoke();
-    }
-  }
+    },
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+.pokeguia {
+  position: relative;
+}
+.alert {
+  position: absolute;
+  top: -48px;
+  left: 0;
+  width: 100%;
+  animation: appear 500ms linear;
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+</style>
