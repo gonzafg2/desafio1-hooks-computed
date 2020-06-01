@@ -12,7 +12,7 @@
         />
         <h2 class="d-block d-none-md">PokeGuía</h2>
       </div>
-      <div class="col-md-5 d-flex justify-content-center">
+      <div class="col-md-5 col-12 d-flex justify-content-center">
         <div class="input-group my-md-3">
           <div class="input-group-prepend">
             <span class="input-group-text py-0"
@@ -31,6 +31,19 @@
             >Presiona Enter para buscar y Esc para limpiar y volver a
             Pikachu.</small
           >
+          <button
+            @click="getPoke"
+            class="mt-2 col-5 btn btn-success btn-block d-block d-none-md"
+          >
+            Buscar
+          </button>
+          <div class="col"></div>
+          <button
+            @click="cleanPoke"
+            class="mt-2 col-5 mt-0 btn btn-warning btn-block d-block d-none-md"
+          >
+            Limpiar
+          </button>
         </div>
       </div>
     </div>
