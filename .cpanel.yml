@@ -1,10 +1,10 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/gfleming/public_html/pokedex2/
-    - /bin/cp app.js $DEPLOYPATH
-    - /bin/cp dist/index.html $DEPLOYPATH
-    - /bin/cp dist/favicon.ico $DEPLOYPATH
-    - /bin/cp -R dist/css $DEPLOYPATH
-    - /bin/cp -R dist/js $DEPLOYPATH
-    - /bin/cp -R dist/img $DEPLOYPATH
+# ---
+# deployment:
+#   tasks:
+#     - export DEPLOYPATH=/home/gfleming/public_html/pokedex2/
+#     - /bin/cp app.js $DEPLOYPATH
+#     - /bin/cp dist/index.html $DEPLOYPATH
+#     - /bin/cp dist/favicon.ico $DEPLOYPATH
+#     - /bin/cp -R dist/css $DEPLOYPATH
+#     - /bin/cp -R dist/js $DEPLOYPATH
+#     - /bin/cp -R dist/img $DEPLOYPATH
