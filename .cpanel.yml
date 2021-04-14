@@ -2,4 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/gfleming/public_html/pokedex2
+    - /bin/cp app.js $DEPLOYPATH
     - /bin/cp -R dist $DEPLOYPATH
