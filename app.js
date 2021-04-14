@@ -1,10 +1,23 @@
-const express = require("express"),
-  serveStatic = require("serve-static"),
-  history = require("connect-history-api-fallback"),
-  port = process.env.PORT || 5000;
+const http = require("http");
+const fs = require("fs").promises;
+const host = "localhost";
+const port = 5000;
 
-const app = express();
+const requestListener = function(req, res) {
+  fs.readFile(__dirname + "/index.html")
+    .then((contents) => {
+      res.setHeader("Content-Type", "text/html");
+      res.writeHead(200);
+      res.end(contents);
+    })
+    .catch((err) => {
+      res.writeHead(500);
+      res.end(err);
+      return;
+    });
+};
 
-app.use(history());
-app.use(serveStatic(__dirname + "/"));
-app.listen(port);
+const server = http.createServer(requestListener);
+server.listen(port, host, () => {
+  console.log(`Server is running on http://${host}:${port}`);
+});
