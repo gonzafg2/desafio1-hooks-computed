@@ -6,5 +6,5 @@ const express = require("express"),
 const app = express();
 
 app.use(history());
-app.use(serveStatic(__dirname + "/dist/"));
+app.use(serveStatic(__dirname + "/"));
 app.listen(port);
